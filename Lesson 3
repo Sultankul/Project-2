@@ -1,0 +1,30 @@
+public class Main {
+
+    public static void main(String[] args) {
+        double[] nums = {54.4, 12.6, 16.9, 81.6, 76.8, -31.4, -21.1, 16.3, 46.8};
+        int counter = 0;
+        double result = 0.0;
+        int index = 0;
+        boolean isFirst = true;
+        int c = 0;
+
+        for (double e : nums) {
+            counter++;
+            if (e < 0 && isFirst) {
+                index = counter;
+                isFirst = false;
+            }
+        }
+
+        counter = 0;
+
+        for (double e : nums) {
+            counter++;
+            if (counter > index && e > 0) {
+                result += e;
+                c++;
+            }
+        }
+        System.out.println("Average variable is " + result/c);
+    }
+}
